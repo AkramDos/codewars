@@ -1,0 +1,59 @@
+public class RomanNumerals {
+ 
+  public static String toRoman(int n) {
+    int[] values = { 1000, 900, 800, 500, 400, 100, 90, 80, 50, 40, 10, 9, 8, 5, 4, 1 };
+    String[] symbols = { "M", "CM", "DCCC", "D", "CD", "C", "XC", "LXXX", "L", "XL", "X", "IX", "VIII", "V", "IV", "I" };
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < values.length; i++) {
+        final int value = values[i];
+        while (n >= value) {
+            n -= value;
+            result.append(symbols[i]);
+        }
+    }
+    return result.toString();
+  }
+  
+  public static int fromRoman(String str) {
+    int res = 0;
+    for (int i = 0; i < str.length(); i++)
+    {
+        int s1 = value(str.charAt(i));
+        if (i + 1 < str.length())
+        {
+            int s2 = value(str.charAt(i + 1));
+            if (s1 >= s2)
+            {
+                res = res + s1;
+            }
+            else
+            {
+                res = res + s2 - s1;
+                i++;
+            }
+        }
+        else {
+            res = res + s1;
+        }
+    }
+    return res;
+  }
+  static int value(char r)
+    {
+        if (r == 'I')
+            return 1;
+        if (r == 'V')
+            return 5;
+        if (r == 'X')
+            return 10;
+        if (r == 'L')
+            return 50;
+        if (r == 'C')
+            return 100;
+        if (r == 'D')
+            return 500;
+        if (r == 'M')
+            return 1000;
+        return -1;
+    }
+}
