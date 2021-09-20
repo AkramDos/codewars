@@ -1,0 +1,12 @@
+public class SpinWords {
+
+  public String spinWords(String sentence) {
+    String parts[] = sentence.split(" ");
+    for (int i=0; i<parts.length; i++) {
+      if (parts[i].length() >= 5) {
+        parts[i] = new StringBuilder(parts[i]).reverse().toString();
+      }
+    }
+    return String.join(" ",parts);
+  }
+}
