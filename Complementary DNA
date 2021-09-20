@@ -1,0 +1,13 @@
+public class DnaStrand {
+  public static String makeComplement(String dna) {
+    //Your code
+    dna = dna.toUpperCase();
+    dna = dna.replaceAll("A","a");
+    dna = dna.replaceAll("T","A");
+    dna = dna.replaceAll("a","T");
+    dna = dna.replaceAll("C","c");
+    dna = dna.replaceAll("G","C");
+    dna = dna.replaceAll("c","G");
+    return dna;
+  }
+}
